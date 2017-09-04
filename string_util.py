@@ -7,6 +7,17 @@ import linecache
 import codecs
 import numpy as np
 
+'''
+    # bin_2_str 二进制转字符串
+    # bin_2_dec 二进制转十进制
+    # str_2_bin 字符串转二进制
+    # read_file 读取文件,统一转换成unicode编码
+    # add_zero 补零
+    # str_2_matrix 字符串转二进制矩阵
+    # matrix_2_str 矩阵转字符串
+    # test 测试
+'''
+
 
 class StringUtil(object):
     def __init__(self):
