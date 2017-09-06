@@ -8,7 +8,7 @@ bit = 16
 
 def cstr2vec(aString):
     '''
-    输入单个中文字符串
+    ���뵥�������ַ���
     '''
     if type(aString) == type(u'\u0000'):
         strBinarySys = bin(ord(aString))
@@ -23,7 +23,7 @@ def cstr2vec(aString):
 
 def centence2array(string):
     '''
-    输入一句话
+    ����һ�仰
     '''
     if type(string) == type(u'\u0000'):
         string_UTF8 = string
@@ -47,7 +47,7 @@ def array2centence(array):
 
 
 if __name__ == "__main__":
-    centence = "哈哈呵呵".encode('utf-8')
+    centence = "�����Ǻ�".encode('utf-8')
     print(centence, centence)
     # array = centence2array(centence)
     # print(array)

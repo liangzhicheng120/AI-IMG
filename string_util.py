@@ -72,14 +72,14 @@ class StringUtil(object):
 
     def str_2_matrix(self, str):
         '''
-        字符串转二进制矩阵
+        字符串转二进制矩阵,每行代表一个字符
         :param str: 字符串
         :return:
         '''
-        result = map(self.str_2_bin, list(str))
-        result = map(int, result)
-        result = list(result)
-        result = np.array(result)
+        # result = map(lambda x: list(self.str_2_bin(x)), list(str))  # 不使用补零
+        result = map(lambda x: list(self.add_zero(self.str_2_bin(x))), list(str.strip()))  # 使用补零
+        result = map(lambda x: list(map(eval, x)), result)
+        result = np.array(list(result))
         return result
 
     def matrix_2_str(self, matrix):
@@ -89,7 +89,8 @@ class StringUtil(object):
         :return:
         '''
         result = matrix.tolist()
-        result = map(lambda x: self.bin_2_str(str(x)), result)
+        result = map(lambda x: ''.join(list(map(str, x))), result)
+        result = map(self.bin_2_str, result)
         result = list(result)
         return result
 
@@ -98,12 +99,12 @@ class StringUtil(object):
         str = self.matrix_2_str(matrix)
         print('======================')
         print(matrix)
-        print(str)
+        print(''.join(str))
 
 
 if __name__ == '__main__':
     stringUtil = StringUtil()
-    stringUtil.test('我是中国人')  # 简体字
+    stringUtil.test('我是中国人   ')  # 简体字
     stringUtil.test('123456')  # 数字
     stringUtil.test('!@#$%^&*()')  # 英文特殊字符
     stringUtil.test('！@#￥%……&*（）')  # 中文特殊字符
